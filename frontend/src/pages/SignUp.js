@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import LoginIcons from '../assest/signin.gif'
 import { IoEyeSharp } from "react-icons/io5";
 import { FaEyeSlash } from "react-icons/fa6";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import imageTobase64 from '../helpers/imageTobase64';
+import SummaryApi from '../common';
+import { toast } from 'react-toastify';
 
 const SignUp = () => {
     const[showPassword,setShowPassword] =useState(false)
@@ -15,6 +17,8 @@ const SignUp = () => {
         confirmPassword: "",
         profilePic : "",
     })
+
+    const navigate = useNavigate()
 
     const handleUploadPic = async(e) =>{
         const file = e.target.files[0]
@@ -41,8 +45,38 @@ const SignUp = () => {
         })
     }
 
-    const handlesubmir=(e)=>{
+    const handlesubmir=async(e)=>{
         e.preventDefault();
+
+        if(data.password === data.confirmPassword){
+            
+            const dataResponse = await fetch("http://localhost:8080/api/signup",{
+                method: SummaryApi.SignUP.method,
+                headers : {
+                    "Content-Type": "application/json", 
+                },
+                body : JSON.stringify(data)
+            })
+    
+            
+    
+            const dataApi = await dataResponse.json()
+
+            if(dataApi.success){
+                toast.success(dataApi.message)
+                navigate("/login")
+            }
+
+            if(dataApi.error){
+                toast.error(dataApi.message)
+            }
+    
+            console.log("data", dataApi)
+        }else{
+            console.log("las contraseñas no coinciden")
+        }
+
+        
     }
 
     console.log("data login",data)

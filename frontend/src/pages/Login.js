@@ -3,6 +3,8 @@ import LoginIcons from '../assest/signin.gif'
 import { IoEyeSharp } from "react-icons/io5";
 import { FaEyeSlash } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
+import SummaryApi from '../common';
+import { toast } from 'react-toastify';
 
 const Login = () => {
     const[showPassword,setShowPassword] = useState(false)
@@ -22,8 +24,27 @@ const Login = () => {
         })
     }
 
-    const handlesubmir=(e)=>{
-        e.preventDefault();
+    const handlesubmit= async(e)=>{
+        e.preventDefault()
+
+        const dataResponse = await fetch(SummaryApi.signIn.url,{
+            method : SummaryApi.signIn.method,
+            credentials : 'include',
+            headers : {
+                "content-type" : "application/json"
+            },
+            body : JSON.stringify(data)
+        })
+
+        const dataApi = await dataResponse.json()
+
+        if(dataApi.success){
+            toast.success(dataApi.message)
+        }
+        if(dataApi.error){
+            toast.error(dataApi.message)
+        }
+
     }
 
     console.log("data login",data)
@@ -37,7 +58,7 @@ const Login = () => {
                     <img src={LoginIcons} alt='Login icons'/>
                 </div>
 
-                <form className='pt-6 flex flex-col gap-2' onSubmit={handlesubmir}>
+                <form className='pt-6 flex flex-col gap-2' onSubmit={handlesubmit}>
                     <div className='grid'>
                         <label>Correo</label>
                         <div className='bg-slate-100 p-2 rounded-xl'>
