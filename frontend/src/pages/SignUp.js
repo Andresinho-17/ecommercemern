@@ -70,10 +70,8 @@ const SignUp = () => {
             if(dataApi.error){
                 toast.error(dataApi.message)
             }
-    
-            console.log("data", dataApi)
         }else{
-            console.log("las contraseñas no coinciden")
+            toast.error("las contraseñas no coinciden")
         }
 
         

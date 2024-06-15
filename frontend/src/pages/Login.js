@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import LoginIcons from '../assest/signin.gif'
 import { IoEyeSharp } from "react-icons/io5";
 import { FaEyeSlash } from "react-icons/fa6";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SummaryApi from '../common';
 import { toast } from 'react-toastify';
+import Context from '../context';
 
 const Login = () => {
     const[showPassword,setShowPassword] = useState(false)
@@ -12,6 +13,11 @@ const Login = () => {
         email: "",
         password: ""
     })
+
+    const navigation = useNavigate()
+    const {fetchUserDetails} = useContext(Context)
+
+    
 
     const handleOnChange = (e) =>{
         const  {name , value } = e.target
@@ -40,6 +46,8 @@ const Login = () => {
 
         if(dataApi.success){
             toast.success(dataApi.message)
+            navigation('/')
+            fetchUserDetails()
         }
         if(dataApi.error){
             toast.error(dataApi.message)
