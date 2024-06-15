@@ -170,7 +170,7 @@ const UploadProduct = ({ onClose, fetchData }) => {
             required
           />
 
-          <label htmlFor='sellingPrice' className='mt-3'>Preco de Venta :</label>
+          <label htmlFor='sellingPrice' className='mt-3'>Precio de Venta :</label>
           <input
             type='number'
             id='sellingPrice'
