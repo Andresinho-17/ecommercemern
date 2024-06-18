@@ -1,24 +1,26 @@
 const productModel = require("../../models/productModel")
 
-const getProductController = async(req,res)=>{
+const getProductDetails = async(req,res)=>{
     try{
-        const allProduct = await productModel.find().sort({ createdAt : -1 })
+        const { productId } = req.body
+
+        const product = await productModel.findById(productId)
 
         res.json({
-            message : "All Product",
+            data : product,
+            message : "Ok",
             success : true,
-            error : false,
-            data : allProduct
+            error : false
         })
 
+        
     }catch(err){
-        res.status(400).json({
-            message : err.message || err,
+        res.json({
+            message : err?.message  || err,
             error : true,
             success : false
         })
     }
-
 }
 
-module.exports = getProductController
+module.exports = getProductDetails

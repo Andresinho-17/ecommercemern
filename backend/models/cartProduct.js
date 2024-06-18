@@ -12,6 +12,6 @@ const addToCart = mongoose.Schema({
 })
 
 
-const addToCartModel = mongoose.model("addToCart",addToCart)
+const addToCartModel = mongoose.model("agregar carrito",addToCart)
 
 module.exports = addToCartModel

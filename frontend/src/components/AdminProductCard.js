@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { MdModeEditOutline } from "react-icons/md";
+import { MdModeEditOutline } from "react-icons/md"
 import AdminEditProduct from './AdminEditProduct';
 import displayINRCurrency from '../helpers/displayCurrency';
 
