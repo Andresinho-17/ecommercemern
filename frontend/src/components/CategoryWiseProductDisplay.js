@@ -79,7 +79,7 @@ const CategroyWiseProductDisplay = ({category, heading}) => {
                                         <p className='text-red-600 font-medium'>{ displayINRCurrency(product?.sellingPrice) }</p>
                                         <p className='text-slate-500 line-through'>{ displayINRCurrency(product?.price)  }</p>
                                     </div>
-                                    <button className='text-sm bg-red-600 hover:bg-red-700 text-white px-3 py-0.5 rounded-full' onClick={(e)=>handleAddToCart(e,product?._id)}>Agregar al carrito</button>
+                                    <button className='text-sm bg-green-600 hover:bg-green-700 text-white hover:text-black px-3 py-0.5 rounded-full' onClick={(e)=>handleAddToCart(e,product?._id)}>Agregar al carrito</button>
                                 </div>
                             </Link>
                         )

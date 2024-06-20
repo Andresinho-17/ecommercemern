@@ -190,7 +190,7 @@ const ProductDetails = () => {
                 <h2 className='text-2xl lg:text-4xl font-medium'>{data?.productName}</h2>
                 <p className='capitalize text-slate-400'>{data?.category}</p>
 
-                <div className='text-red-600 flex items-center gap-1'>
+                <div className='text-blue-600 flex items-center gap-1'>
                     <FaStar/>
                     <FaStar/>
                     <FaStar/>
@@ -204,8 +204,8 @@ const ProductDetails = () => {
                 </div>
 
                 <div className='flex items-center gap-3 my-2'>
-                  <button className='border-2 border-red-600 rounded px-3 py-1 min-w-[120px] text-red-600 font-medium hover:bg-red-600 hover:text-white' onClick={(e)=>handleBuyProduct(e,data?._id)}>Comprar</button>
-                  <button className='border-2 border-red-600 rounded px-3 py-1 min-w-[120px] font-medium text-white bg-red-600 hover:text-red-600 hover:bg-white' onClick={(e)=>handleAddToCart(e,data?._id)}>Agregar Carrito</button>
+                  <button className='border-2 border-red-600 rounded px-3 py-1 min-w-[120px] text-black font-medium hover:bg-green-600 hover:text-white' onClick={(e)=>handleBuyProduct(e,data?._id)}>Comprar</button>
+                  <button className='border-2 border-red-600 rounded px-3 py-1 min-w-[120px] font-medium text-black bg-white hover:text-white hover:bg-green-600' onClick={(e)=>handleAddToCart(e,data?._id)}>Agregar Carrito</button>
                 </div>
 
                 <div>
