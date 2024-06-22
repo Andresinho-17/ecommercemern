@@ -113,7 +113,7 @@ const ProductDetails = () => {
                             style={{
                               background : `url(${activeImage})`,
                               backgroundRepeat : 'no-repeat',
-                              backgroundPosition : `${zoomImageCoordinate.x * 100}% ${zoomImageCoordinate.y * 100}% `
+                              backgroundPosition : `${zoomImageCoordinate.x * 100 }% ${zoomImageCoordinate.y * 100}% `
     
                             }}
                           >

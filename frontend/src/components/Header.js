@@ -59,7 +59,7 @@ const Header = () => {
                 </div>
 
                 <div className='hidden lg:flex items-center w-full justify-between max-w-sm rounded-full focus-within:shadow pl-2 hiver: bg-white'>
-                    <input type='text' placeholder='Buscar producto' className='w-full outline-none' />
+                    <input type='text' placeholder='Buscar producto' className='w-full outline-none' onChange={handleSearch} value={search}/>
                     <div className='text-lg min-w-[50px] h-8 bg-black flex items-center justify-center rounded-r-full text-white'>
                         <GrSearch/>
                     </div>
@@ -89,6 +89,13 @@ const Header = () => {
                                         {
                                             user?.role === ROLE.ADMIN && (
                                                 <Link to={"/admin-panel/all-products"} className='whitespace-nowrap hover:bg-slate-100 p-2' onClick={()=>setMenuDisplay(preve => !preve)}>admin panel</Link>
+                                            )
+                                        }
+                                    </nav>
+                                    <nav>
+                                        {
+                                            user?.role === ROLE.GENERAL &&(
+                                                <Link to={"/ProfileUser"} className='whitespace-nowrap hover:bg-slate-100 p-2' onClick={()=>setMenuDisplay(preve => !preve)}>Perfil</Link>
                                             )
                                         }
                                     </nav>
