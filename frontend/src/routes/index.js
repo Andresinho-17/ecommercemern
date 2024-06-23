@@ -12,6 +12,7 @@ import ProductDetails from '../pages/ProductDetails'
 import Cart from '../pages/Cart'
 import SearchProduct from '../pages/SearchProduct'
 import ProfileUser from "../pages/ProfileUser";
+import Pago from "../pages/pagos";
 
 const router = createBrowserRouter([
     {
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
             {
                 path: "ProfileUser",
                 element: <ProfileUser/>
+            },
+            {
+                path: "pago",
+                element: <Pago/>
             },
             {
                 path : "admin-panel",

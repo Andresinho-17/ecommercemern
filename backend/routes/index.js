@@ -22,6 +22,8 @@ const updateAddToCartProduct = require('../controller/user/updateAddToCartProduc
 const deleteAddToCartProduct = require('../controller/user/deleteAddToCartProduct')
 const searchProduct = require('../controller/product/searchProduct')
 const filterProductController = require('../controller/product/filterProduct')
+const ForgotPasswordController = require('../controller/user/ForgotPassword')
+
 
 
 
@@ -29,6 +31,7 @@ router.post("/signup", userSignUpController)
 router.post("/signin",userSignInController)
 router.get("/user-details",authToken,userDetailsController)
 router.get("/userLogout",userLogout)
+router.post('/forgot-password', ForgotPasswordController)
 
 //ADMIN PANEL
 router.get("/all-user", authToken,allUser)

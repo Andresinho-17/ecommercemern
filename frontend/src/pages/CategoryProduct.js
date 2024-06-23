@@ -117,7 +117,7 @@ const CategoryProduct = () => {
                 </div>
 
 
-                {/**filter by */}
+                
                 <div className=''>
                     <h3 className='text-base uppercase font-medium text-slate-500 border-b pb-1 border-slate-300'>Categoria</h3>
 
